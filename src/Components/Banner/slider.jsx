@@ -49,6 +49,7 @@ const Slider = () => {
       <a href="#slide2" className="btn btn-circle">❮</a> 
       <a href="#slide4" className="btn btn-circle">❯</a>
     </div>
+
   </div> 
   <div id="slide4" className="carousel-item relative sm:w-full w-[330px] h-[500px] sm:h-[800px] ">
     <img src='https://i.ibb.co/WvMh3Ww/Pngtree-delicious-fried-chicken-food-hq-494971.png' className="sm:w-full w-[330px] h-[500px] sm:h-[800px] " />
@@ -60,6 +61,7 @@ const Slider = () => {
      <button className='btn btn-outline text-white border-yellow-400 btn-warning ' >Leatest Food</button>
     </div>
     </div>
+    
     <div className="absolute flex bottom-0 justify-end gap-5 transform -translate-y-1/2 left-5 right-5 ">
       <a href="#slide3" className="btn btn-circle">❮</a> 
       <a href="#slide1" className="btn btn-circle">❯</a>

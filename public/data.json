@@ -1,6 +1,9 @@
+
+
+
+
 [
     {
-      "id": 1,
       "foodName": "Pizza ",
       "foodImage": "https://i.ibb.co/4F6kbg2/menu-7.jpg",
       "foodCategory": "Pizza",
@@ -10,7 +13,6 @@
       "order": 9
     },
     {
-      "id": 2,
       "foodName": "Beef Burger",
       "foodImage": "https://i.ibb.co/Jd0DXbZ/burger.png",
       "foodCategory": "Burger",
@@ -20,7 +22,6 @@
       "order": 7
     },
     {
-      "id": 3,
       "foodName": "Dessert",
       "foodImage": "https://i.ibb.co/HHfSmhv/RFO-1400x919-classic-chocolate-mousse-69ef9c9c-5bfb-4750-80e1-31aafbd80821-0-1400x919.jpg",
       "foodCategory": "Dessert",
@@ -30,17 +31,15 @@
       "order": 8
     },
     {
-      "id": 4,
       "foodName": "French Fries",
       "foodImage": "bhttps://i.ibb.co/MP5Hjj3/f5.png",
       "foodCategory": "Chips/Fries",
       "price": 6.99,
-      "description": "Savory chicken burger served with crispy fries on the side.Crispy French fries seasoned to perfection.",
+      "description": "Savory chicken burger served with crispy fries on the py French fries seasoned to perfection.",
       "detailsButton": "View Details",
       "order": 5
     },
     {
-      "id": 5,
       "foodName": "chicken Pizza ",
       "foodImage": "https://i.ibb.co/WkW4WhN/f3.png",
       "foodCategory": "Pizza",
@@ -50,7 +49,6 @@
       "order": 12
     },
     {
-      "id": 6,
       "foodName": "Spicy Burger",
       "foodImage": "https://i.ibb.co/FJ16GGL/f2.png",
       "foodCategory": "Burger",
@@ -60,7 +58,6 @@
       "order": 14
     },
     {
-      "id": 7,
       "foodName": "cake",
       "foodImage": "https://i.ibb.co/g4YLd80/b4b73ab7da87ac4adef2934c4bcae41f.jpg",
       "foodCategory": "Dessert",
@@ -70,17 +67,15 @@
       "order": 2
     },
     {
-      "id": 8,
       "foodName": "Chicken Fry",
       "foodImage": "https://i.ibb.co/ZGQGtRd/intro-1565810304.jpg",
       "foodCategory": "Chips/Fries",
       "price": 3.99,
-      "description": "Savory chicken burger served with crispy fries on the side.Crispy French fries seasoned to perfection.",
+      "description": "Savory chicken burger served with crispy fries on the py French fries seasoned to perfection.",
       "detailsButton": "View Details",
       "order": 13
     },
     {
-      "id": 9,
       "foodName": "vegetable Pizza",
       "foodImage": "https://i.ibb.co/Kj5nyv7/f6.png",
       "foodCategory": "Pizza",
@@ -90,7 +85,7 @@
       "order": 14
     },
     {
-      "id": 10,
+      
       "foodName": "vegetable Burger",
       "foodImage": "https://i.ibb.co/K7C1Syn/f8.png",
       "foodCategory": "Burger",
@@ -100,7 +95,7 @@
       "order": 15
     },
     {
-      "id": 11,
+      
       "foodName": "Chocolate Mousse",
       "foodImage": "https://i.ibb.co/wR60prp/404c075611063cc55e71f88a5e453a9c.jpg",
       "foodCategory": "Dessert",
@@ -110,7 +105,7 @@
       "order": 19
     },
     {
-      "id": 12,
+      
       "foodName": "Fish Fries 3",
       "foodImage": "https://i.ibb.co/ygZPZgL/320-Krispy-Southern-Fish-Fry-Getty-986886194.jpg",
       "foodCategory": "Chips/Fries",
@@ -120,7 +115,7 @@
       "order": 12
     },
     {
-      "id": 13,
+      
       "foodName": "spicy Pizza",
       "foodImage": "https://i.ibb.co/2hp8gjt/f1.png",
       "foodCategory": "Pizza",
@@ -130,7 +125,7 @@
       "order": 14
     },
     {
-      "id": 14,
+      
       "foodName": "Chess Burger",
       "foodImage": "https://i.ibb.co/7ntZmnD/cheese-burger.png",
       "foodCategory": "Burger",
@@ -140,7 +135,7 @@
       "order": 18
     },
     {
-      "id": 15,
+      
       "foodName": "Cakes",
       "foodImage": "https://i.ibb.co/BP54Lvh/toffes-cake.png",
       "foodCategory": "Dessert",
@@ -150,7 +145,7 @@
       "order": 19
     },
     {
-      "id": 16,
+      
       "foodName": "Steak BBQ",
       "foodImage": "https://i.ibb.co/MBsChrc/steak.png",
       "foodCategory": "Chips/Fries",
@@ -160,7 +155,7 @@
       "order": 6
     },
     {
-      "id": 17,
+      
       "foodName": "Pizza",
       "foodImage": "https://i.ibb.co/xffxNL6/pizza.png",
       "foodCategory": "Pizza",
@@ -170,7 +165,7 @@
       "order": 11
     },
     {
-      "id": 18,
+      
       "foodName": "Special Burger",
       "foodImage": "https://i.ibb.co/xqHFVk4/f7.png",
       "foodCategory": "Burger",
@@ -180,34 +175,34 @@
       "order": 5
     },
     {
-      "id": 19,
+      
       "foodName": "Custard Pudding",
       "foodImage": "https://i.ibb.co/xqHFVk4/f7.png",
       "foodCategory": "Dessert",
       "price": 7.99,
       "description": "Creamy banana split with three scoops of ice cream, whipped cream, and cherries.",
       "detailsButton": "View Details",
-      "order": 0
+      "order": 9
     },
     {
-      "id": 20,
+      
       "foodName": "Beaf steak ",
       "foodImage": "https://i.ibb.co/fSJXdtV/menu-4.jpg",
       "foodCategory": "Chips/Fries",
       "price": 6.99,
-      "description": "Spicy jalapeno cheese fries served with a side of cool ranch dip.",
+      "description": "Spicy jalapeno cheese fries served with a ool ranch dip.",
       "detailsButton": "View Details",
-      "order": 0
+      "order": 12
     },
     {
-      "id": 21,
+      
       "foodName": "chess Pizza ",
       "foodImage": "https://i.ibb.co/4F6kbg2/menu-7.jpg",
       "foodCategory": "Pizza",
       "price": 15.99,
       "description": "Hawaiian pizza with pineapple, ham, and a sweet tomato sauce.",
       "detailsButton": "View Details",
-      "order": 0
+      "order": 23
     }
   ]
   

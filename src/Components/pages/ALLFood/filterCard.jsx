@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SortedCard = ({data}) => {
+const FilterCard = ({finddata}) => {
+    
 
-
-    const {foodImage,_id,foodName,description,foodCategory,price,order}=data
+    const {foodImage,_id,foodName,description,foodCategory,price,order}=finddata
     return (
-            
+                 
         <div data-aos='fade-up' className=" flex  h-[470px] max-w-[26rem]  flex-col rounded-xl bg-gray-100 bg-clip-border text-gray-700 shadow-lg">
   <div className="relative mx-4 mt-4 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
     <img className='w-[400px] h-[300px]'
@@ -61,4 +61,4 @@ const SortedCard = ({data}) => {
     );
 };
 
-export default SortedCard;
+export default FilterCard;

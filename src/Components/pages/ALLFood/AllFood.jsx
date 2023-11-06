@@ -18,7 +18,7 @@ const AllFood = () => {
     console.log(page);
 
 
-    //pagination
+    //pagination add
     const {data:{result,total}}=useQuery({
         queryKey:['allfoods',page ],
         queryFn:()=>fetch(`http://localhost:5000/allfoods?page=${page}`).then((response)=>response.json()),

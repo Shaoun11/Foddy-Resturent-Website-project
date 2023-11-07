@@ -1,0 +1,32 @@
+[
+  
+   
+    
+   
+    {
+    
+    "foodName": "vegetable Burger",
+    "foodImage": "https://i.ibb.co/YdGYgrG/ultimate-canadian-burgers-mobile.jpg",
+    "foodCategory": "Burger",
+    "price": 7.99,
+    "description": "Juicy turkey burger with cranberry sauce and brie cheese.",
+      
+   "order": 15,
+      "quantity":13
+    },
+  
+        
+        "foodName": "Custard Pudding",
+        "foodImage": "https://i.ibb.co/89JrDnZ/maxresdefault.jpg",
+        "foodCategory": "Dessert",
+        "price": 7.99,
+        "description": "Creamy banana split with three scoops of ice cream, whipped cream, and cherries.",
+              
+       "order": 9,
+        "quantity":7
+        },
+        
+            
+          ,
+          
+    ]

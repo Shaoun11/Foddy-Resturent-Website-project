@@ -1,21 +1,21 @@
 
 import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { Authcontext } from '../AuthProvider/AuthProvider';
 
 
 const Navber = () => {
-    const { user, logout } = useContext;
+    const { user, logout } = useContext(Authcontext);
     const link=<>
     <li><NavLink to={"/"}>Home</NavLink></li>
    <li><NavLink to={"/allfood"}>  All-Food</NavLink></li>
-    <li><NavLink to={"/about"}>About</NavLink></li>
-    <li><NavLink to={"/contact"}>Contact</NavLink></li>
-    <li><NavLink to={"/mycart"}>Mycart</NavLink></li>
+    <li><NavLink to={"/blog"}>Blog</NavLink></li>
+    
 
   </>
     return (
 
-    <div className="navbar  w-full  px-[25px] mx-auto bg-white  ">
+    <div className="navbar bg-white  ">
     <div className="navbar-start ">
       <div className="dropdown">
         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -59,11 +59,18 @@ const Navber = () => {
      {user?.email ? (
             <div className="dropdown dropdown-end ">
               <label tabIndex={0} className="cursor-pointer">
-                <div className="avatar">
-                  <div className="w-10 rounded-full">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=1964&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+             <div className='flex gap-2'>
+             <div className='mt-2'>
+                    <p>{user?.displayName}</p>
                   </div>
+                  <div className="avatar">
+                  <div className="w-10 rounded-full">
+                    <img src={user?.photoURL}/>
+                  </div>
+              
                 </div>
+             </div>
+              
               </label>
               <div
                 tabIndex={0}

@@ -24,7 +24,7 @@ const Slider = () => {
     <img src='https://i.ibb.co/dQHNP8P/slider2-1920x1080.jpg' className="sm:w-full object-cover w-[330px] h-[500px] sm:h-[800px] " />
     <div className="absolute bg-gradient-to-r from-[#0a0909] to-rgba(21, 21, 21, 0.00) 100%)  flex h-full  top-0 left-0 items-center  ">
     <div className=' pl-16 space-y-7 w-1/2'>
-    <h2 className='lg:text-6xl md:text-4xl   font-bold' >Special Offer For Your Favourite Food</h2>
+    <h2 className='lg:text-6xl md:text-4xl text-white  font-bold' >Special Offer For Your Favourite Food</h2>
      <p className='lg:text-lg md:text-base text-xs font-medium text-[#FFF]'>We appreciate your patronage and would like to offer you an exclusive discount for your next visit to fooddy. Enjoy a 15% discount on your entire meal. This is our way of saying thank you for choosing us.</p>
      <button className='btn mr-5 text-white border-red-500 btn-warning bg-red-500' >Discover More </button>
      <button className='btn btn-outline text-white border-yellow-400 btn-warning ' >Leatest Food</button>

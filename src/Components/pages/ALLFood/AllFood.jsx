@@ -7,6 +7,8 @@ import FilterCard from './filterCard';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { FiSearch } from 'react-icons/fi';
 
+import Loading from '../../Loaading/Loading';
+
 
 
 const AllFood = () => {
@@ -15,21 +17,41 @@ const AllFood = () => {
     // const { total } = useLoaderData();
    const searchQuery = search.toLowerCase(); 
    const [page,setpage]=useState(0);
+   const [loader,setloader]=useState(true);
     console.log(page);
 
 
     //pagination add
-    const {data:{result,total}}=useQuery({
+    // const {data:{result,total},isLoading,isError}=useQuery({
+    //     queryKey:['allfoods',page ],
+    //     queryFn:async ()=>fetch(`http://localhost:5000/allfoods?page=${page}`).then((response)=>response.json()),
+        
+    //     initialData:{result:[],total:0}
+    // })
+
+    //different way query
+    const {data:{result,total},isLoading,isError}=useQuery({
         queryKey:['allfoods',page ],
-        queryFn:()=>fetch(`http://localhost:5000/allfoods?page=${page}`).then((response)=>response.json()),
+        queryFn:async ()=>{
+            const response=await fetch(`http://localhost:5000/allfoods?page=${page}`)
+            const data=await  response.json()
+            setloader(false)
+            return data;},
         initialData:{result:[],total:0}
     })
+
+
     const numberofpage=Math.ceil(total/9);
 
     const pages=[... Array(numberofpage).keys()]
+    
+    if (loader) {
+        return <Loading></Loading>
+     }
+ 
+    console.log(loader);
+   
 
-
-console.log(search);
     
    
 
@@ -43,7 +65,7 @@ console.log(search);
                 <title>Foody resturent All Food</title>
 
             </Helmet>
-            <div className='sm:w-full w-[330px] flex lg:flex-row md:flex-row flex-col justify-between lg:gap-6 md:gap-4 gap-5 h-[500px] sm:h-[700px] bg-[#ffb30e]'>
+            <div className='sm:w-full  w-[330px] flex lg:flex-row md:flex-row flex-col justify-between lg:gap-6 md:gap-4 gap-5 h-[500px] sm:h-[700px] bg-[#ffb30e]'>
                 <div>
                     <div className=" lg:pt-48 lg:pl-16 md:pl-6 md:pt-32  bg-[#ffb30e] flex justify-center items-center">
                         <div className="container mx-auto bg-gray-200 rounded-lg p-14">
@@ -72,8 +94,8 @@ console.log(search);
                         </div>
                     </div>
                 </div>
-                <div className=' lg:pt-8 md:pt-36'>
-                    <img src="https://i.ibb.co/KVJJhSm/hero-header.png" alt="" />
+                <div className=' lg:pt-8 lg:mr-4 md:pt-36'>
+                    <img className='w-[600px] h-600px]' src="https://i.ibb.co/KVJJhSm/hero-header.png" alt="" />
                 </div>
             </div>
             <h1 className='text-6xl lg:mt-10 md:mt-10 mt-[400px] mb-16 font-bold text-center' >  ALL <span className='text-red-500'>Food</span> </h1>

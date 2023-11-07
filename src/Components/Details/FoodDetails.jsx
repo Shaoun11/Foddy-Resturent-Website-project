@@ -4,7 +4,7 @@ import {MdAttachMoney}from "react-icons/md";
 const FoodDetails = () => {
     const data=useLoaderData();
     console.log(data);
-    const {description,detailsButton,foodCategory,foodImage,foodName,order,price}=data;
+    const {_id,description,detailsButton,foodCategory,foodImage,foodName,order,price}=data;
     return (
         <div>
             <section  className="text-gray-700 body-font overflow-hidden bg-white">
@@ -85,7 +85,7 @@ const FoodDetails = () => {
          </div>
         <div className='flex'>
           
-         <Link to={"/orderpage"}>
+         <Link to={`/orderpage/${_id}`}>
          <button   className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Order Now</button>
          
          </Link>

@@ -31,12 +31,14 @@ const AllFood = () => {
 
     //different way query
     const {data:{result,total},isLoading,isError}=useQuery({
-        queryKey:['allfoods',page ],
+        queryKey:['allfoods',page,loader ],
         queryFn:async ()=>{
             const response=await fetch(`http://localhost:5000/allfoods?page=${page}`)
             const data=await  response.json()
-            setloader(false)
-            return data;},
+           setloader(false,)
+            return data;
+         
+        },
         initialData:{result:[],total:0}
     })
 

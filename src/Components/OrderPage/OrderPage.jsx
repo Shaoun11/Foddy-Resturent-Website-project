@@ -1,21 +1,33 @@
-import Swal from "sweetalert2";
-
-
+import { useContext } from "react";
+import { Authcontext } from "../AuthProvider/AuthProvider";
+import Swal from 'sweetalert2'
+import { useLoaderData } from "react-router-dom";
+import { MdAttachMoney} from "react-icons/md"
 const OrderPage = () => {
-
+const {user}=useContext(Authcontext);
+const fooddata=useLoaderData();
+const {foodImage,_id,foodName,description,foodCategory,price,order}=fooddata
   const handleform=e=>{
     e.preventDefault();
     const form=e.target;
     const name=form.name.value;
-    const img=form.img.value;
+    const email=form.email.value;
     const BrandName=form.BrandName.value;
-    const rating=form.rating.value;
+    const quantity=form.quantity.value;
     const Price=form.Price.value;
-    const type=form.type.value;
-    const description=form.description.value;
+    const date=form.date.value;
+    if (quantity>order) {
+        return Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Unavailable Quantity!",
+          });
+     }
    
-    const data={name,img,BrandName,rating,Price,type,description}
-
+    const data={name,email,BrandName,quantity,Price,date,foodImage,description}
+ 
+    
+  console.log(data);
     fetch('https://my-project-xi-sable.vercel.app/phones',{
         method:"post",
         headers: {
@@ -28,8 +40,8 @@ const OrderPage = () => {
         console.log(value);
         if (value.insertedId) {
             Swal.fire({
-                title: 'success',
-                text: 'you added succesfully',
+                title: 'Success',
+                text: 'You Order Placed',
                 icon: 'success',
                 confirmButtonText: 'Thank you'
               })
@@ -44,24 +56,25 @@ const OrderPage = () => {
 
 
     return (
-      <div className="lg:flex bg-stone-100  md:flex items-center justify-center">
+      <div className="lg:flex bg-stone-100 pb-52  md:flex items-center justify-center">
         <div>
-            <img className="h-[400px]" src="https://i.ibb.co/HnP9Qdj/360-F-254878309-P62oik-Pc8zu9-TQjr4j2-Xp-Ekl5d-FBa6ep-removebg-preview.png" alt="" />
+            <img className="h-full w-full" src="https://i.ibb.co/hWhRX61/Untitled-design-5.png" alt="" />
         </div>
           <div className="flex  items-center justify-center p-12">
 
 <div className="mx-auto w-full max-w-[550px]">
-<h1 className="text-3xl text-center font-semibold">Add Your New Product</h1>
+<h1 className="text-3xl text-center font-semibold">Purchase Your Food </h1>
   <form onSubmit={handleform}  >
     <div className="mb-5">
       <label
         for="name"
         className="mb-3 block text-base font-medium text-[#07074D]"
       >
-        Full Name
+        Food Name
       </label>
       <input
         type="text"
+        defaultValue={foodName}
         name="name"
         id="name"
         placeholder="Name"
@@ -73,14 +86,16 @@ const OrderPage = () => {
         for="img"
         className="mb-3 block text-base font-medium text-[#07074D]"
       >
-       Photo URL
+      Buyer Email 
       </label>
       <input
-        type="text"
-        name="img"
+        type="disable"
+          defaultValue={user?.email}
+
+        name="email"
         id="img"
         placeholder="Photo URL"
-        className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+        className="block w-full rounded-md border disabled border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
       />
     </div>
     <div className="-mx-3 flex flex-wrap">
@@ -90,10 +105,11 @@ const OrderPage = () => {
             for="fName"
             className="mb-3 block text-base font-medium text-[#07074D]"
           >
-            Brand Name
+            Buyer Name
           </label>
           <input
             type="text"
+            defaultValue={user?.displayName}
             name="BrandName"
             id="fName"
             placeholder="Brand Name"
@@ -107,13 +123,14 @@ const OrderPage = () => {
             for="fName"
             className="mb-3 block text-base font-medium text-[#07074D]"
           >
-            Rating
+            Quantity
           </label>
           <input
             type="text"
-            name="rating"
+            required
+            name="quantity"
             id="fName"
-            placeholder="Rating"
+            placeholder="Quantity"
             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
           />
         </div>
@@ -122,13 +139,15 @@ const OrderPage = () => {
         <div className="mb-5">
           <label
             for="lName"
-            className="mb-3 block text-base font-medium text-[#07074D]"
+            
+            className="mb-3 block  text-base font-medium text-[#07074D]"
           >
            Price
           </label>
           <input
             type="text"
             name="Price"
+            defaultValue={price}
             id="price"
             placeholder="Price"
             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
@@ -141,39 +160,26 @@ const OrderPage = () => {
             for="lName"
             className="mb-3 block text-base font-medium text-[#07074D]"
           >
-           Type
+          Date
           </label>
           <input
-            type="text"
-            name="type"
+            type="date"
+            name="date"
             id="price"
+            required
             placeholder="Type"
-            className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+            className="w-full  rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
           />
         </div>
       </div>
      
     </div>
-    <div className="mb-5">
-      <label
-        for="message"
-        className="mb-3 block text-base font-medium text-[#07074D]"
-      >
-     Short Descriptin
-      </label>
-      <textarea
-        rows="4"
-       name="description"
-        id="description"
-        placeholder="Type your description"
-        className="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-      ></textarea>
-    </div>
+   
     <div>
       <button
         className="hover:shadow-form rounded-md bg-red-500 py-3 px-8 text-base font-semibold text-white outline-none"
       >
-       Add Product
+       Purchase
       </button>
     </div>
   </form>

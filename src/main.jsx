@@ -28,17 +28,17 @@ const routes = createBrowserRouter([{
     {
       path: "/",
       element: <Home></Home>,
-      loader: () => fetch('http://localhost:5000/allfoods')
+      loader: () => fetch('https://assginment-11-server-site.vercel.app/allfoods')
     },
     {
       path: "/allfood",
       element:<AllFood></AllFood>,
-      loader:()=>fetch('http://localhost:5000/allfoods')
+      loader:()=>fetch('https://assginment-11-server-site.vercel.app/allfoods')
     },
     {
       path: "/details/:id",
       element:<FoodDetails></FoodDetails>,
-     loader:({params})=>fetch(`http://localhost:5000/foods/${params.id}`)
+     loader:({params})=>fetch(`https://assginment-11-server-site.vercel.app/foods/${params.id}`)
     },
     {
       path:"/blog",
@@ -47,12 +47,12 @@ const routes = createBrowserRouter([{
     {
       path:"/orderpage/:id",
       element:<PrivateRoute><OrderPage></OrderPage></PrivateRoute>,
-      loader:({params})=>fetch(`http://localhost:5000/foods/${params.id}`)
+      loader:({params})=>fetch(`https://assginment-11-server-site.vercel.app/foods/${params.id}`)
     },
     {
       path:"/myorder",
       element:<PrivateRoute><MyOrder></MyOrder></PrivateRoute>,
-      loader:()=>fetch(`http://localhost:5000/order`)
+      loader:()=>fetch(`https://assginment-11-server-site.vercel.app/order`)
     },
     {
       path:"/addfood",
@@ -61,12 +61,12 @@ const routes = createBrowserRouter([{
     {
       path:"/myaddfood",
       element:<PrivateRoute><MyAddedFood></MyAddedFood></PrivateRoute>,
-      loader:()=>fetch(`http://localhost:5000/addedfood`) 
+      loader:()=>fetch(`https://assginment-11-server-site.vercel.app/addedfood`) 
     },
     {
        path:"/updated/:id",
        element:<Updated></Updated>,
-      loader:({params})=>fetch(`http://localhost:5000/addedfood/${params.id}`) 
+      loader:({params})=>fetch(`https://assginment-11-server-site.vercel.app/addedfood/${params.id}`) 
     },
     {
       path:"/login",

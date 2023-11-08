@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+
 import Swal from 'sweetalert2';
 import { Authcontext } from '../AuthProvider/AuthProvider';
-import Footer from '../Footer/Footer';
 import { Helmet } from 'react-helmet-async';
+import { useContext } from 'react';
 
 const AddFood = () => {
     const{user}=useContext(Authcontext);
@@ -21,7 +21,7 @@ const AddFood = () => {
        const username=user?.displayName;
         const data={foodName,foodImage,foodCategory,order,price,country,description,useremail,userimg,username}
        console.log(data);
-        fetch('http://localhost:5000/allfoods',{
+        fetch('https://assginment-11-server-site.vercel.app/allfoods',{
             method:"post",
             headers: {
                 "Content-Type": "application/json",

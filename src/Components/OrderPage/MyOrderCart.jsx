@@ -18,7 +18,7 @@ const MyOrderCart = ({data,setdata,datacart}) => {
         }).then((result) => {
           if (result.isConfirmed) {
             
-            axios.delete(`http://localhost:5000/order/${_id}`,data)
+            axios.delete(`https://assginment-11-server-site.vercel.app/order/${_id}`,data)
     .then(() =>{
         const remainingfood = datacart.filter(foods=>foods._id!==_id)
         setdata(remainingfood)

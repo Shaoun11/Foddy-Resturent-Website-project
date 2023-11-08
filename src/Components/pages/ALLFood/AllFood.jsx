@@ -25,7 +25,7 @@ const AllFood = () => {
     //pagination add
     // const {data:{result,total},isLoading,isError}=useQuery({
     //     queryKey:['allfoods',page ],
-    //     queryFn:async ()=>fetch(`http://localhost:5000/allfoods?page=${page}`).then((response)=>response.json()),
+    //     queryFn:async ()=>fetch(`https://assginment-11-server-site.vercel.app/allfoods?page=${page}`).then((response)=>response.json()),
         
     //     initialData:{result:[],total:0}
     // })
@@ -34,7 +34,7 @@ const AllFood = () => {
     const {data:{result,total},isLoading,isError}=useQuery({
         queryKey:['allfoods',page,loader ],
         queryFn:async ()=>{
-            const response=await fetch(`http://localhost:5000/allfoods?page=${page}`)
+            const response=await fetch(`https://assginment-11-server-site.vercel.app/allfoods?page=${page}`)
             const data=await  response.json()
            setloader(false,)
             return data;

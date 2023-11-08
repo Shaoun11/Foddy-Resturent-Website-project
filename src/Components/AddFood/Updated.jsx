@@ -26,7 +26,7 @@ const Updated = () => {
         const data={foodName,foodImage,foodCategory,order,price,country,description,useremail,userimg,username}
        console.log(data);
           
-       fetch(`http://localhost:5000/addedfood/${_id}`, {
+       fetch(`https://assginment-11-server-site.vercel.app/addedfood/${_id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

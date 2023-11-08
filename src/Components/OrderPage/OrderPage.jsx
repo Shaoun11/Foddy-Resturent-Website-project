@@ -38,9 +38,6 @@ const {foodImage,_id,foodName,description,useremail,foodCategory,price,order}=fo
    
     const data={name,email,BrandName,quantity,Price,date,foodImage,description,authorimg}
  
-    
-  
-
     fetch('http://localhost:5000/order',{
         method:"post",
         headers: {
@@ -65,9 +62,6 @@ const {foodImage,_id,foodName,description,useremail,foodCategory,price,order}=fo
 
         }
     })
-
-
-
 
   }
 

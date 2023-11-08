@@ -41,7 +41,7 @@ const SortedCard = ({data}) => {
     </div>
     
     <p className="block font-sans text-base font-light leading-relaxed text-gray-700 antialiased">
-      {description}
+      {description.slice(0,100)}
     </p>
     <h5 className="block font-sans text-base font-mono leading-snug tracking-normal text-blue-gray-900 antialiased">
        Category:{foodCategory}

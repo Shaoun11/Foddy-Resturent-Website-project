@@ -89,7 +89,7 @@ const Navber = () => {
                  My Orders
                 </NavLink>
                 <NavLink
-                  to="/addfood"
+                  to="/myaddfood"
                   className="px-4 py-2 hover:bg-base-300 rounded-lg"
                 >
                  My Added Food

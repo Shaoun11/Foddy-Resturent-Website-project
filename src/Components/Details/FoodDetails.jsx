@@ -4,7 +4,7 @@ import {MdAttachMoney}from "react-icons/md";
 const FoodDetails = () => {
     const data=useLoaderData();
     console.log(data);
-    const {_id,description,detailsButton,foodCategory,foodImage,foodName,order,price}=data;
+    const {_id,description,userimg,detailsButton,foodCategory,foodImage,foodName,order,price}=data;
     return (
         <div>
             <section  className="text-gray-700 body-font overflow-hidden bg-white">
@@ -16,7 +16,11 @@ const FoodDetails = () => {
         <h1  className="text-gray-900 text-3xl title-font font-medium mb-1">{foodCategory}</h1>
 
         <div className=" flex gap-3 items-center font-semibold text-gray-800  hover:bg-gray-100 rounded-md hover:cursor-pointer">
-            <img className="w-10 h-10 rounded-full" src="https://randomuser.me/api/portraits/women/24.jpg" alt="Rebecca Burke"/>
+           <div>
+                <img className="w-10 h-10 rounded-full" src="https://randomuser.me/api/portraits/women/24.jpg" alt="Rebecca Burke"/>
+              </div>
+              
+           
             <div className="flex flex-col">
                 <div>
                     Rebecca Burke
@@ -68,7 +72,7 @@ const FoodDetails = () => {
           </span>
         </div>
         <p className='font-semibold  '>Quantity: <span className='text-red-500'>{order}</span>  </p>
-        <p  className="leading-relaxed pt-3"> {detailsButton} </p>
+        <p  className="leading-relaxed pt-3"> {detailsButton}{description} </p>
         <div  className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
           
           <div  className="flex ml-6 items-center">

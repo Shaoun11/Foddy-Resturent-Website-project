@@ -1,21 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
+import { Authcontext } from '../AuthProvider/AuthProvider';
 
 const AddFood = () => {
+    const{user}=useContext(Authcontext);
     const handleform=e=>{
         e.preventDefault();
         const form=e.target;
-        const name=form.name.value;
-        const img=form.img.value;
-        const BrandName=form.BrandName.value;
-        const rating=form.rating.value;
-        const Price=form.Price.value;
-        const type=form.type.value;
+        const foodName=form.foodName.value;
+        const foodImage=form.foodImage.value;
+        const foodCategory=form.foodCategory.value;
+        const order=form.order.value;
+        const price=form.Price.value;
+        const country=form.country.value;
         const description=form.description.value;
-       
-        const data={name,img,BrandName,rating,Price,type,description}
-    
-        fetch('https://my-project-xi-sable.vercel.app/phones',{
+       const userimg=user?.photoURL;
+       const useremail=user?.email;
+       const username=user?.displayName;
+        const data={foodName,foodImage,foodCategory,order,price,country,description,useremail,userimg,username}
+       console.log(data);
+        fetch('http://localhost:5000/allfoods',{
             method:"post",
             headers: {
                 "Content-Type": "application/json",
@@ -28,7 +32,7 @@ const AddFood = () => {
             if (value.insertedId) {
                 Swal.fire({
                     title: 'success',
-                    text: 'you added succesfully',
+                    text: 'you food added succesfully',
                     icon: 'success',
                     confirmButtonText: 'Thank you'
                   })
@@ -55,13 +59,13 @@ const AddFood = () => {
         for="name"
         className="mb-3 block text-base font-medium text-[#07074D]"
       >
-        Full Name
+     Food Name
       </label>
       <input
         type="text"
-        name="name"
+        name="foodName"
         id="name"
-        placeholder="Name"
+        placeholder="Type Your Food Name"
         className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
       />
     </div>
@@ -70,13 +74,13 @@ const AddFood = () => {
         for="img"
         className="mb-3 block text-base font-medium text-[#07074D]"
       >
-       Photo URL
+       Food URL
       </label>
       <input
         type="text"
-        name="img"
+        name="foodImage"
         id="img"
-        placeholder="Photo URL"
+        placeholder=" Food Image URL"
         className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
       />
     </div>
@@ -87,13 +91,13 @@ const AddFood = () => {
             for="fName"
             className="mb-3 block text-base font-medium text-[#07074D]"
           >
-            Brand Name
+            Category Name
           </label>
           <input
             type="text"
-            name="BrandName"
+            name="foodCategory"
             id="fName"
-            placeholder="Brand Name"
+            placeholder="Food Category"
             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
           />
         </div>
@@ -104,13 +108,13 @@ const AddFood = () => {
             for="fName"
             className="mb-3 block text-base font-medium text-[#07074D]"
           >
-            Rating
+            Quantity
           </label>
           <input
             type="text"
-            name="rating"
+            name="order"
             id="fName"
-            placeholder="Rating"
+            placeholder="Quantity"
             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
           />
         </div>
@@ -124,7 +128,7 @@ const AddFood = () => {
            Price
           </label>
           <input
-            type="text"
+            type="number"
             name="Price"
             id="price"
             placeholder="Price"
@@ -138,13 +142,13 @@ const AddFood = () => {
             for="lName"
             className="mb-3 block text-base font-medium text-[#07074D]"
           >
-           Type
+          Food Origin
           </label>
           <input
             type="text"
-            name="type"
+            name="country"
             id="price"
-            placeholder="Type"
+            placeholder="Food Origin (Country)"
             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
           />
         </div>

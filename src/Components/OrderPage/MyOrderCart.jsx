@@ -72,7 +72,7 @@ const MyOrderCart = ({data,setdata,datacart}) => {
 						{date}</div>
 				</div>
 				<h3 className="font-black text-gray-800 md:text-2xl text-xl">{name}</h3>
-				<p className="md:text-sm text-gray-500 text-base">{description}</p>
+				<p className="md:text-sm text-gray-500 text-base">{description.slice(0,100)}</p>
 				<div className='flex justify-between'>
                 <div className=" flex gap-3 items-center font-semibold text-gray-800  hover:bg-gray-100 rounded-md hover:cursor-pointer">
             <img className="w-8 h-8 rounded-full" src={authorimg} alt="Rebecca Burke"/>

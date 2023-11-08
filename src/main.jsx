@@ -7,14 +7,7 @@ import Home from './Components/Home/Home.jsx'
 import Errorpage from './Components/Error.jsx'
 import AllFood from './Components/pages/ALLFood/AllFood.jsx'
 import {  HelmetProvider } from 'react-helmet-async'
-
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query'
+import {useQuery,useMutation,useQueryClient,QueryClient,QueryClientProvider,} from '@tanstack/react-query'
 import FoodDetails from './Components/Details/FoodDetails.jsx'
 import Login from './Components/Authentication/Login.jsx'
 import AuthProvider from './Components/AuthProvider/AuthProvider.jsx'
@@ -23,6 +16,7 @@ import Blog from './Components/Blog/Blog.jsx'
 import OrderPage from './Components/OrderPage/OrderPage.jsx'
 import MyOrder from './Components/OrderPage/MyOrder.jsx'
 import AddFood from './Components/AddFood/AddFood.jsx'
+import MyAddedFood from './Components/AddFood/MyAddedFood.jsx'
 
 const routes = createBrowserRouter([{
   path: "/",
@@ -61,6 +55,11 @@ const routes = createBrowserRouter([{
     {
       path:"/addfood",
       element:<AddFood></AddFood>
+    },
+    {
+      path:"/myaddfood",
+      element:<MyAddedFood></MyAddedFood>,
+      loader:()=>fetch(`http://localhost:5000/addedfood`)
     },
     {
       path:"/login",

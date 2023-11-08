@@ -17,6 +17,8 @@ import OrderPage from './Components/OrderPage/OrderPage.jsx'
 import MyOrder from './Components/OrderPage/MyOrder.jsx'
 import AddFood from './Components/AddFood/AddFood.jsx'
 import MyAddedFood from './Components/AddFood/MyAddedFood.jsx'
+import PrivateRoute from './Components/AuthProvider/PrivateRoute.jsx'
+import Updated from './Components/AddFood/Updated.jsx'
 
 const routes = createBrowserRouter([{
   path: "/",
@@ -44,22 +46,27 @@ const routes = createBrowserRouter([{
     },
     {
       path:"/orderpage/:id",
-      element:<OrderPage></OrderPage>,
+      element:<PrivateRoute><OrderPage></OrderPage></PrivateRoute>,
       loader:({params})=>fetch(`http://localhost:5000/foods/${params.id}`)
     },
     {
       path:"/myorder",
-      element:<MyOrder></MyOrder>,
+      element:<PrivateRoute><MyOrder></MyOrder></PrivateRoute>,
       loader:()=>fetch(`http://localhost:5000/order`)
     },
     {
       path:"/addfood",
-      element:<AddFood></AddFood>
+      element:<PrivateRoute><AddFood></AddFood></PrivateRoute>
     },
     {
       path:"/myaddfood",
-      element:<MyAddedFood></MyAddedFood>,
-      loader:()=>fetch(`http://localhost:5000/addedfood`)
+      element:<PrivateRoute><MyAddedFood></MyAddedFood></PrivateRoute>,
+      loader:()=>fetch(`http://localhost:5000/addedfood`) 
+    },
+    {
+       path:"/updated/:id",
+       element:<Updated></Updated>,
+      loader:({params})=>fetch(`http://localhost:5000/addedfood/${params.id}`) 
     },
     {
       path:"/login",

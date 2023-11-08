@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 
 const MyAddedCart = ({food}) => {
     const {foodName,_id,foodImage,foodCategory,order,price,country,description,useremail,userimg,username}=food;
-
+   
+    const handle=e=>{
+        e.preventDefault()
+        const form =e.target;
+        const email=form.target.value;
+        console.log(email);
+    }
     return (
         <div data-aos='fade-up' className=" flex  h-[470px] max-w-[26rem]  flex-col rounded-xl bg-gray-100 bg-clip-border text-gray-700 shadow-lg">
   <div className="relative mx-4 mt-4 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
@@ -45,14 +51,31 @@ const MyAddedCart = ({food}) => {
        Category:{foodCategory}
       </h5>
     <div className='flex justify-between'>
-    <h5 className="block font-sans text-xl font-medium leading-snug tracking-normal text-blue-gray-900 antialiased">
+    <h5 className="block font-sans text-lg font-medium leading-snug tracking-normal text-blue-gray-900 antialiased">
        ${price}
       </h5>
       <h5 className="block font-sans text-sm text-red-500 font-medium leading-snug tracking-normal text-blue-gray-900 antialiased">
        Sell:{order}
       </h5>
     </div>
-    <Link to={`/details/${_id}`}> <button className='btn w-full text-white btn-warning  mt-6 '>Delete</button></Link>
+    <div className=" flex gap-3 pb-3 items-center font-semibold text-gray-800  hover:bg-gray-100 rounded-md hover:cursor-pointer">
+            <img className="w-9 h-9 rounded-full" src={userimg} alt="Rebecca Burke"/>
+            <div className="flex flex-col">
+                <div className='text-sm'>
+                    {username}
+                    <p className='text-gray-400 text-sm font-normal'> Added By</p>
+                </div>
+              
+            </div>
+        </div>
+       <Link to={`/updated/${_id}`} >
+       <div>
+                <button  className='btn w-full btn-outline cursor-pointer items-center justify-center rounded-md border-red-500 py-2 px-8 text-center text-gray-700 transition duration-150 ease-in-out hover:translate-y-1 hover:bg-red-500 hover:text-white' >Update</button>
+               </div>
+       </Link>
+<div>
+    
+</div>
   </div>
  
 </div>

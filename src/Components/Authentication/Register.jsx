@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Form, NavLink, Navigate, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { Authcontext } from '../AuthProvider/AuthProvider';
+import axios from 'axios';
 
 
 
@@ -10,7 +11,10 @@ const Register = () => {
     const [error,seterror]=useState('')
     const [success,setsuccess]=useState('')
     const navigate=useNavigate();
-    const { createuser,googlelogin,githublogin,handleUpdateProfile}=useContext(Authcontext);
+    const { createuser,googlelogin,githublogin,handleUpdateProfile,user}=useContext(Authcontext);
+    const photoURL=user?.photoURL;
+    const name=user?.displayName;
+    const userdata={photoURL,name}
     const handlemanuallyregister=e=>{
         e.preventDefault()
         const email=e.target.email.value;
@@ -33,6 +37,7 @@ const Register = () => {
         .then((userCredential) => {
             handleUpdateProfile(name, img)
             .then(()=>{
+               
                 toast.success('Registation Successfully!')
                 window.location.reload();
                 <Navigate to="/" replace ></Navigate>
@@ -53,6 +58,7 @@ const Register = () => {
     const handleloginadd=(media)=>{
         media()
         .then(res => {
+            
             toast.success('User logged in successfully');
             navigate("/")
           

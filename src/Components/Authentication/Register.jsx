@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Form, NavLink, Navigate, useNavigate } from 'react-router-dom';
+import { Form, NavLink, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { Authcontext } from '../AuthProvider/AuthProvider';
 import axios from 'axios';
@@ -10,7 +10,8 @@ import axios from 'axios';
 const Register = () => {
     const [error,seterror]=useState('')
     const [success,setsuccess]=useState('')
-    const navigate=useNavigate();
+    const location=useLocation();
+    const navigate=useNavigate()
     const { createuser,googlelogin,githublogin,handleUpdateProfile,user}=useContext(Authcontext);
     const photoURL=user?.photoURL;
     const name=user?.displayName;
@@ -40,7 +41,7 @@ const Register = () => {
                
                 toast.success('Registation Successfully!')
                 window.location.reload();
-                <Navigate to="/" replace ></Navigate>
+                navigate(location?.state? location?.state:('/'))
                 
             })
             
@@ -60,7 +61,7 @@ const Register = () => {
         .then(res => {
             
             toast.success('User logged in successfully');
-            navigate("/")
+            navigate(location?.state? location?.state:('/'))
           
         })
         .catch(error => {

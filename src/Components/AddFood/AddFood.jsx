@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
 import { Authcontext } from '../AuthProvider/AuthProvider';
+import Footer from '../Footer/Footer';
+import { Helmet } from 'react-helmet-async';
 
 const AddFood = () => {
     const{user}=useContext(Authcontext);
@@ -45,6 +47,11 @@ const AddFood = () => {
     
       }
     return (
+        <div>
+             <Helmet>
+                <title>Foody resturent Added New Food</title>
+             
+            </Helmet>
         <div className="lg:flex bg-stone-100  md:flex items-center justify-center">
         <div>
             <img className="h-[400px]" src="https://i.ibb.co/HnP9Qdj/360-F-254878309-P62oik-Pc8zu9-TQjr4j2-Xp-Ekl5d-FBa6ep-removebg-preview.png" alt="" />
@@ -174,13 +181,18 @@ const AddFood = () => {
       <button
         className="hover:shadow-form rounded-md bg-red-500 py-3 px-8 text-base font-semibold text-white outline-none"
       >
-       Add Product
+       Add Food
       </button>
     </div>
   </form>
 </div>
+
 </div>
+
       </div>
+
+
+ </div>
     );
 };
 

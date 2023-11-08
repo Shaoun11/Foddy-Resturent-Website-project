@@ -3,12 +3,13 @@ import { Authcontext } from "../AuthProvider/AuthProvider";
 import Swal from 'sweetalert2'
 import { Navigate, useLoaderData, useNavigate } from "react-router-dom";
 import { MdAttachMoney} from "react-icons/md"
+import { Helmet } from "react-helmet-async";
 
 const OrderPage = () => {
 const {user}=useContext(Authcontext);
 const fooddata=useLoaderData();
-const navigate=useNavigate;
-const {foodImage,_id,foodName,description,foodCategory,price,order}=fooddata
+const navigate=useNavigate();
+const {foodImage,_id,foodName,description,useremail,foodCategory,price,order}=fooddata;
   const handleform=e=>{
 
     e.preventDefault();
@@ -26,6 +27,13 @@ const {foodImage,_id,foodName,description,foodCategory,price,order}=fooddata
             title: "Oops...",
             text: "Unavailable Quantity!",
           });
+     }
+     if (fooddata?.useremail==email) {
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You didn't purches your own product!",
+      });
      }
    
     const data={name,email,BrandName,quantity,Price,date,foodImage,description,authorimg}
@@ -52,7 +60,7 @@ const {foodImage,_id,foodName,description,foodCategory,price,order}=fooddata
               })
               
            form.reset() ;
-           
+           navigate("/allfood")
            
 
         }
@@ -66,6 +74,10 @@ const {foodImage,_id,foodName,description,foodCategory,price,order}=fooddata
 
     return (
       <div className="lg:flex bg-stone-100 pb-52  md:flex items-center justify-center">
+           <Helmet>
+                <title>Foody resturent Purches Food</title>
+             
+            </Helmet>
         <div>
             <img className="h-full w-full" src="https://i.ibb.co/hWhRX61/Untitled-design-5.png" alt="" />
         </div>

@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import { Authcontext } from '../AuthProvider/AuthProvider';
 import MyOrderCart from './MyOrderCart';
 import { Helmet } from 'react-helmet-async';
+import Footer from '../Footer/Footer';
 
 const MyOrder = () => {
     const [orderdata,setorder]=useState([]);
@@ -31,12 +32,12 @@ const MyOrder = () => {
 
 
     return (
-        <>
+        <div >
         <Helmet>
                 <title>Foody resturent My Order Page</title>
              
             </Helmet>
-            <div>
+            <div >
                 <h1 className='font-bold lg:text-6xl md:text-6xl text-[43px] text-center mt-6 mb-16'>My  Ordered<span className='text-red-500'></span>  <span className='text-red-500'>Food</span></h1>
             </div>
         <div className='max-w-6xl mx-auto  grid md:grid-cols-1 lg:grid-cols-2 grid-cols-1 gap-6 '>
@@ -47,7 +48,10 @@ const MyOrder = () => {
                 data={data} ></MyOrderCart>)
            } 
         </div>
-        </>
+        <div className='mt-24'>
+        <Footer></Footer>
+        </div>
+        </div>
     );
 };
 

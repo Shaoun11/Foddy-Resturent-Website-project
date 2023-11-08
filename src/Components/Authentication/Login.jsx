@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Form, Link, useNavigate } from 'react-router-dom';
+import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 
 import toast from 'react-hot-toast';
 import { Authcontext } from '../AuthProvider/AuthProvider';
@@ -10,6 +10,7 @@ import { Authcontext } from '../AuthProvider/AuthProvider';
 
 
 const Login = () => {
+    const location=useLocation();
     const navigate=useNavigate()
     const {userlogin,googlelogin}=useContext(Authcontext);
     const handlelogin = e => {
@@ -22,6 +23,7 @@ const Login = () => {
             // Signed in 
             const user = userCredential.user;
             toast.success('Login Successfully!')
+            navigate(location?.state? location?.state:('/'))
             console.log(user);
             // ...
           })
@@ -36,8 +38,10 @@ const Login = () => {
           const handleloginpopup=(media)=>{
             media()
             .then(res => {
+                navigate(location?.state? location?.state:('/'))
                 toast.success('User logged in successfully');
-                navigate('/')
+               
+                
             })
             .catch(error => {
                 toast.error(error.message)

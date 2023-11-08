@@ -8,6 +8,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { FiSearch } from 'react-icons/fi';
 
 import Loading from '../../Loaading/Loading';
+import Footer from '../../Footer/Footer';
 
 
 
@@ -116,7 +117,7 @@ const AllFood = () => {
                     pages.map((item,index)=><button onClick={()=>setpage(index)} className=  { ` ${page == index ?"bg-red-500 text-white":"bg-yellow-400 text-white"} lock h-8 w-10 rounded border border-gray-100  text-center leading-8 `} >{index+1}</button>)
                 }
             </div>
-
+             <Footer></Footer>
         </div>
     );
 };

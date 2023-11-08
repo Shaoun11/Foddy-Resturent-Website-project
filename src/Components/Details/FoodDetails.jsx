@@ -14,6 +14,7 @@ const FoodDetails = () => {
       <div  className="lg:w-1/2 w-full lg:pl-10 md:pl-10 pl-3 pr-3 lg:py-6 mt-6 lg:mt-0">
         <h2  className="text-sm title-font font-semibold text-gray-500 tracking-widest">{foodName}</h2>
         <h1  className="text-gray-900 text-3xl title-font font-medium mb-1">{foodCategory}</h1>
+
         <div className=" flex gap-3 items-center font-semibold text-gray-800  hover:bg-gray-100 rounded-md hover:cursor-pointer">
             <img className="w-10 h-10 rounded-full" src="https://randomuser.me/api/portraits/women/24.jpg" alt="Rebecca Burke"/>
             <div className="flex flex-col">
@@ -25,7 +26,8 @@ const FoodDetails = () => {
                 </div>
             </div>
         </div>
-        <div  className="flex mb-4">
+        
+        <div  className="flex ">
             
           <span  className="flex items-center">
             
@@ -65,16 +67,18 @@ const FoodDetails = () => {
             </a>
           </span>
         </div>
-        <p  className="leading-relaxed"> {detailsButton} </p>
+        <p className='font-semibold  '>Quantity: <span className='text-red-500'>{order}</span>  </p>
+        <p  className="leading-relaxed pt-3"> {detailsButton} </p>
         <div  className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
           
           <div  className="flex ml-6 items-center">
           
-            <div  className="relative">
+            <div  className="-ml-6">
             
               <span  className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
-               
+              
               </span>
+             
             </div>
           </div>
         </div>

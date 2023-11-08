@@ -1,89 +1,64 @@
-import { useContext } from "react";
-import { Authcontext } from "../AuthProvider/AuthProvider";
-import Swal from 'sweetalert2'
-import { Navigate, useLoaderData, useNavigate } from "react-router-dom";
-import { MdAttachMoney} from "react-icons/md"
+import React from 'react';
+import Swal from 'sweetalert2';
 
-const OrderPage = () => {
-const {user}=useContext(Authcontext);
-const fooddata=useLoaderData();
-const navigate=useNavigate;
-const {foodImage,_id,foodName,description,foodCategory,price,order}=fooddata
-  const handleform=e=>{
-
-    e.preventDefault();
-    const form=e.target;
-    const name=form.name.value;
-    const email=form.email.value;
-    const BrandName=form.BrandName.value;
-    const quantity=form.quantity.value;
-    const Price=form.Price.value;
-    const date=form.date.value;
-    const authorimg=user?.photoURL;
-    if (quantity>order) {
-        return Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Unavailable Quantity!",
-          });
-     }
-   
-    const data={name,email,BrandName,quantity,Price,date,foodImage,description,authorimg}
- 
+const AddFood = () => {
+    const handleform=e=>{
+        e.preventDefault();
+        const form=e.target;
+        const name=form.name.value;
+        const img=form.img.value;
+        const BrandName=form.BrandName.value;
+        const rating=form.rating.value;
+        const Price=form.Price.value;
+        const type=form.type.value;
+        const description=form.description.value;
+       
+        const data={name,img,BrandName,rating,Price,type,description}
     
-  
-
-    fetch('http://localhost:5000/order',{
-        method:"post",
-        headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-    })
-    .then(res=>res.json())
-    .then(value=>{
-        console.log(value);
-        if (value.insertedId) {
-            Swal.fire({
-                title: 'Success',
-                text: 'You Order Placed',
-                icon: 'success',
-                confirmButtonText: 'Thank you'
-              })
-              
-           form.reset() ;
-           
-           
-
-        }
-    })
-
-
-
-
-  }
-
-
+        fetch('https://my-project-xi-sable.vercel.app/phones',{
+            method:"post",
+            headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+        })
+        .then(res=>res.json())
+        .then(value=>{
+            console.log(value);
+            if (value.insertedId) {
+                Swal.fire({
+                    title: 'success',
+                    text: 'you added succesfully',
+                    icon: 'success',
+                    confirmButtonText: 'Thank you'
+                  })
+               form.reset() ;
+            }
+        })
+    
+    
+    
+    
+      }
     return (
-      <div className="lg:flex bg-stone-100 pb-52  md:flex items-center justify-center">
+        <div className="lg:flex bg-stone-100  md:flex items-center justify-center">
         <div>
-            <img className="h-full w-full" src="https://i.ibb.co/hWhRX61/Untitled-design-5.png" alt="" />
+            <img className="h-[400px]" src="https://i.ibb.co/HnP9Qdj/360-F-254878309-P62oik-Pc8zu9-TQjr4j2-Xp-Ekl5d-FBa6ep-removebg-preview.png" alt="" />
         </div>
           <div className="flex  items-center justify-center p-12">
 
 <div className="mx-auto w-full max-w-[550px]">
-<h1 className="text-3xl text-center font-semibold">Purchase Your Food </h1>
+<h1 className="text-3xl text-center font-semibold">Add Your New Food</h1>
   <form onSubmit={handleform}  >
     <div className="mb-5">
       <label
         for="name"
         className="mb-3 block text-base font-medium text-[#07074D]"
       >
-        Food Name
+        Full Name
       </label>
       <input
         type="text"
-        defaultValue={foodName}
         name="name"
         id="name"
         placeholder="Name"
@@ -95,16 +70,14 @@ const {foodImage,_id,foodName,description,foodCategory,price,order}=fooddata
         for="img"
         className="mb-3 block text-base font-medium text-[#07074D]"
       >
-      Buyer Email 
+       Photo URL
       </label>
       <input
-        type="disable"
-          defaultValue={user?.email}
-         disabled
-        name="email"
+        type="text"
+        name="img"
         id="img"
         placeholder="Photo URL"
-        className="block w-full rounded-md border disabled border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+        className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
       />
     </div>
     <div className="-mx-3 flex flex-wrap">
@@ -114,14 +87,12 @@ const {foodImage,_id,foodName,description,foodCategory,price,order}=fooddata
             for="fName"
             className="mb-3 block text-base font-medium text-[#07074D]"
           >
-            Buyer Name
+            Brand Name
           </label>
           <input
             type="text"
-            defaultValue={user?.displayName}
             name="BrandName"
             id="fName"
-            disabled
             placeholder="Brand Name"
             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
           />
@@ -133,14 +104,13 @@ const {foodImage,_id,foodName,description,foodCategory,price,order}=fooddata
             for="fName"
             className="mb-3 block text-base font-medium text-[#07074D]"
           >
-            Quantity
+            Rating
           </label>
           <input
             type="text"
-            required
-            name="quantity"
+            name="rating"
             id="fName"
-            placeholder="Quantity"
+            placeholder="Rating"
             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
           />
         </div>
@@ -149,15 +119,13 @@ const {foodImage,_id,foodName,description,foodCategory,price,order}=fooddata
         <div className="mb-5">
           <label
             for="lName"
-            
-            className="mb-3 block  text-base font-medium text-[#07074D]"
+            className="mb-3 block text-base font-medium text-[#07074D]"
           >
            Price
           </label>
           <input
             type="text"
             name="Price"
-            defaultValue={price}
             id="price"
             placeholder="Price"
             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
@@ -170,26 +138,39 @@ const {foodImage,_id,foodName,description,foodCategory,price,order}=fooddata
             for="lName"
             className="mb-3 block text-base font-medium text-[#07074D]"
           >
-          Date
+           Type
           </label>
           <input
-            type="date"
-            name="date"
+            type="text"
+            name="type"
             id="price"
-            required
             placeholder="Type"
-            className="w-full  rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+            className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
           />
         </div>
       </div>
      
     </div>
-   
+    <div className="mb-5">
+      <label
+        for="message"
+        className="mb-3 block text-base font-medium text-[#07074D]"
+      >
+     Short Descriptin
+      </label>
+      <textarea
+        rows="4"
+       name="description"
+        id="description"
+        placeholder="Type your description"
+        className="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+      ></textarea>
+    </div>
     <div>
       <button
         className="hover:shadow-form rounded-md bg-red-500 py-3 px-8 text-base font-semibold text-white outline-none"
       >
-       Purchase
+       Add Product
       </button>
     </div>
   </form>
@@ -199,4 +180,4 @@ const {foodImage,_id,foodName,description,foodCategory,price,order}=fooddata
     );
 };
 
-export default OrderPage;
+export default AddFood;

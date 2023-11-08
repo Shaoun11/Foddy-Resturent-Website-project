@@ -21,6 +21,8 @@ import AuthProvider from './Components/AuthProvider/AuthProvider.jsx'
 import Register from './Components/Authentication/Register.jsx'
 import Blog from './Components/Blog/Blog.jsx'
 import OrderPage from './Components/OrderPage/OrderPage.jsx'
+import MyOrder from './Components/OrderPage/MyOrder.jsx'
+import AddFood from './Components/AddFood/AddFood.jsx'
 
 const routes = createBrowserRouter([{
   path: "/",
@@ -50,6 +52,15 @@ const routes = createBrowserRouter([{
       path:"/orderpage/:id",
       element:<OrderPage></OrderPage>,
       loader:({params})=>fetch(`http://localhost:5000/foods/${params.id}`)
+    },
+    {
+      path:"/myorder",
+      element:<MyOrder></MyOrder>,
+      loader:()=>fetch(`http://localhost:5000/order`)
+    },
+    {
+      path:"/addfood",
+      element:<AddFood></AddFood>
     },
     {
       path:"/login",

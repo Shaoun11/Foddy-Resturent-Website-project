@@ -77,16 +77,22 @@ const Navber = () => {
                 className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <NavLink
-                  to="/user"
+                  to="/addfood"
                   className="px-4 py-2 hover:bg-base-300 rounded-lg"
                 >
-                  Profile
+                 Add Food
                 </NavLink>
                 <NavLink
-                  to="/user/orders"
+                  to="/myorder"
                   className="px-4 py-2 hover:bg-base-300 rounded-lg"
                 >
-                  Orders
+                 My Orders
+                </NavLink>
+                <NavLink
+                  to="/addfood"
+                  className="px-4 py-2 hover:bg-base-300 rounded-lg"
+                >
+                 My Added Food
                 </NavLink>
 
                 <div

@@ -1,12 +1,12 @@
-import React from 'react';
+
 
 const Slider = () => {
     return (
         <div>
              <div >
-            <div className="carousel sm:w-full w-[330px] h-[500px] sm:h-[800px] ">
-  <div id="slide1" className="carousel-item relative sm:w-full w-[330px] h-[500px] sm:h-[800px] ">
-    <img src='https://i.ibb.co/7v2yLN7/hero-bg.jpg' className="sm:w-full object-cover w-[330px] h-[500px] sm:h-[800px]  " />
+            <div className="carousel sm:w-full w-[410px] h-[500px] sm:h-[800px] ">
+  <div id="slide1" className="carousel-item relative sm:w-full w-[410px] h-[500px] sm:h-[800px] ">
+    <img src='https://i.ibb.co/7v2yLN7/hero-bg.jpg' className="sm:w-full object-cover w-[410px] h-[500px] sm:h-[800px]  " />
     <div className="absolute bg-gradient-to-r from-[#151519] to-rgba(21, 21, 21, 0.00) 100%)  flex h-full  top-0 left-0 items-center  ">
     <div className=' pl-16 lg:space-y-7 md:space-y-5  space-y-3 w-1/2'>
     <h2 className='lg:text-6xl md:text-4xl  text-white font-bold ' >Special Offer For Your Favourite Food</h2>
@@ -20,8 +20,8 @@ const Slider = () => {
       <a href="#slide2" className="btn btn-circle">❯</a>
     </div>
   </div> 
-  <div id="slide2" className="carousel-item relative sm:w-full w-[330px] h-[500px] sm:h-[800px] ">
-    <img src='https://i.ibb.co/dQHNP8P/slider2-1920x1080.jpg' className="sm:w-full object-cover w-[330px] h-[500px] sm:h-[800px] " />
+  <div id="slide2" className="carousel-item relative sm:w-full w-[410px] h-[500px] sm:h-[800px] ">
+    <img src='https://i.ibb.co/dQHNP8P/slider2-1920x1080.jpg' className="sm:w-full object-cover w-[410px] h-[500px] sm:h-[800px] " />
     <div className="absolute bg-gradient-to-r from-[#0a0909] to-rgba(21, 21, 21, 0.00) 100%)  flex h-full  top-0 left-0 items-center  ">
     <div className=' pl-16 lg:space-y-7 md:space-y-5  space-y-3 w-1/2'>
     <h2 className='lg:text-6xl md:text-4xl text-white  font-bold' >Special Offer For Your Favourite Food</h2>
@@ -35,8 +35,8 @@ const Slider = () => {
       <a href="#slide3" className="btn btn-circle">❯</a>
     </div>
   </div> 
-  <div id="slide3" className="carousel-item relative sm:w-full w-[330px] h-[500px] sm:h-[800px] ">
-    <img src='https://i.ibb.co/9Hf7NFC/Pngtree-a-perfectly-sliced-cheese-pizza-5796625.jpg' className="sm:w-full object-cover w-[330px] h-[500px] sm:h-[800px] " />
+  <div id="slide3" className="carousel-item relative sm:w-full w-[410px] h-[500px] sm:h-[800px] ">
+    <img src='https://i.ibb.co/9Hf7NFC/Pngtree-a-perfectly-sliced-cheese-pizza-5796625.jpg' className="sm:w-full object-cover w-[410px] h-[500px] sm:h-[800px] " />
     <div className="absolute bg-gradient-to-r from-[#101012] to-rgba(21, 21, 21, 0.00) 100%)  flex h-full  top-0 left-0 items-center  ">
     <div className=' pl-16 lg:space-y-7 md:space-y-5  space-y-3 w-1/2'>
     <h2 className='lg:text-6xl md:text-4xl text-white font-bold' >Special Offer For Your Favourite Food</h2>
@@ -51,8 +51,8 @@ const Slider = () => {
     </div>
 
   </div> 
-  <div id="slide4" className="carousel-item relative sm:w-full w-[330px] h-[500px] sm:h-[800px] ">
-    <img src='https://i.ibb.co/WvMh3Ww/Pngtree-delicious-fried-chicken-food-hq-494971.png' className="sm:w-full object-cover w-[330px] h-[500px] sm:h-[800px] " />
+  <div id="slide4" className="carousel-item relative sm:w-full w-[410px] h-[500px] sm:h-[800px] ">
+    <img src='https://i.ibb.co/WvMh3Ww/Pngtree-delicious-fried-chicken-food-hq-494971.png' className="sm:w-full object-cover w-[410px] h-[500px] sm:h-[800px] " />
     <div className="absolute bg-gradient-to-r from-[#151519] to-rgba(21, 21, 21, 0.00) 100%)  flex h-full  top-0 left-0 items-center  ">
     <div className=' pl-16 lg:space-y-7 md:space-y-5  space-y-3 w-1/2'>
     <h2 className='lg:text-6xl md:text-4xl text-white font-bold' >Special Offer For Your Favourite Food</h2>

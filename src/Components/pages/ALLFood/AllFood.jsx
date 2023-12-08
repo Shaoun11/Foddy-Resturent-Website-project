@@ -68,7 +68,7 @@ const AllFood = () => {
                 <title>Foody resturent All Food</title>
 
             </Helmet>
-            <div className='sm:w-full  w-[330px] flex lg:flex-row md:flex-row flex-col justify-between lg:gap-6 md:gap-4 gap-5 h-[500px] sm:h-[700px] bg-[#ffb30e]'>
+            <div className='sm:w-full  w-[410px] flex lg:flex-row md:flex-row flex-col justify-between lg:gap-6 md:gap-4 gap-5 h-[500px] sm:h-[700px] bg-[#ffb30e]'>
                 <div>
                     <div className=" lg:pt-48 lg:pl-16 md:pl-6 md:pt-32  bg-[#ffb30e] flex justify-center items-center">
                         <div className="container mx-auto bg-gray-200 rounded-lg p-14">

@@ -41,7 +41,7 @@ const Register = () => {
                
                 toast.success('Registation Successfully!')
                 window.location.reload();
-                navigate(location?.state? location?.state:('/'))
+                navigate("/")
                 
             })
             

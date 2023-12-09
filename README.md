@@ -2,7 +2,7 @@
 - Project Live Site Link:- https://foddy-resturent-project.netlify.app/
 
  ## Tools
- - React js,Node js,Express,Mongodb,Firebase
+ - React js,Node js,Express js,Mongodb,Firebase
 ## My website features
 - Anyone Purchase food on home
 - Anyone Add food
